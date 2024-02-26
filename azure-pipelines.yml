@@ -1,0 +1,13 @@
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'sqlserver-bicep-deploy'
+    subscriptionId: 'ab0357cd-cb9c-4eb5-89bb-0ba9f4849e5b'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'Sqlserver'
+    location: 'East US'
+    templateLocation: 'Linked artifact'
+    csmFile: 'https://raw.githubusercontent.com/rbrinkke/sqlserver/main/azuredeploy.json'
+    overrideParameters: '-projectname sqlserver'
+    deploymentMode: 'Incremental'
+    deploymentName: 'DeployPipelineTemplat'
